@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Button, Container, Row, Col, Card } from 'react-bootstrap';
+import { } from 'react-bootstrap';
 import './App.css';
+import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
+import UploadPdf from './Components/UploadPdf';
+import Header from './Reusable/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export class App extends React.Component {
+  render() {
+    return (
+
+        <Router>
+          <Header />
+          <Route path="/" exact component={Appl} />
+          <Route path="/uploadPdf" component={UploadPdf} />
+        </Router>
+  
+    );
+  }
+
+
 }
 
-export default App;
+function Appl() {
+  return (
+    <Container>
+      <Row>
+        <Col md='3'>
+          <Card>
+          <Link to='/uploadPdf'>
+            <Card.Header>Upload a PDF</Card.Header>
+            <Card.Body>Upload PDF</Card.Body>
+            </Link>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  )
+}
+
+export default withRouter(App);
