@@ -29,8 +29,8 @@ function Appl() {
         <Col md='3'>
           <Card>
           <Link to='/uploadPdf'>
-            <Card.Header>Upload a PDF</Card.Header>
-            <Card.Body>Upload PDF</Card.Body>
+            <Card.Header>Upload File</Card.Header>
+            <Card.Body>Upload File</Card.Body>
             </Link>
           </Card>
         </Col>
