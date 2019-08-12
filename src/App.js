@@ -3,7 +3,7 @@ import { Button, Container, Row, Col, Card } from 'react-bootstrap';
 import { } from 'react-bootstrap';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
-import UploadPdf from './Components/UploadFile';
+import UploadFile from './Components/UploadFile';
 import Header from './Reusable/Header';
 
 export class App extends React.Component {
