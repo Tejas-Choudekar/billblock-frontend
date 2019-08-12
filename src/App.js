@@ -3,7 +3,7 @@ import { Button, Container, Row, Col, Card } from 'react-bootstrap';
 import { } from 'react-bootstrap';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
-import UploadPdf from './Components/UploadPdf';
+import UploadPdf from './Components/UploadFile';
 import Header from './Reusable/Header';
 
 export class App extends React.Component {
@@ -13,7 +13,7 @@ export class App extends React.Component {
         <Router>
           <Header />
           <Route path="/" exact component={Appl} />
-          <Route path="/uploadPdf" component={UploadPdf} />
+          <Route path="/uploadFile" component={UploadFile} />
         </Router>
   
     );
@@ -28,7 +28,7 @@ function Appl() {
       <Row>
         <Col md='3'>
           <Card>
-          <Link to='/uploadPdf'>
+          <Link to='/uploadFile'>
             <Card.Header>Upload File</Card.Header>
             <Card.Body>Upload File</Card.Body>
             </Link>
