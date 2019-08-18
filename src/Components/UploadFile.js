@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-d
 import App from '../App';
 
 
-export class UploadPdf extends React.Component {
+export class UploadFile extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -36,4 +36,4 @@ export class UploadPdf extends React.Component {
     }
 }
 
-export default UploadPdf
+export default UploadFile
