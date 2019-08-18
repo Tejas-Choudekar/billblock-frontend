@@ -4,6 +4,7 @@ import { } from 'react-bootstrap';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
 import UploadFile from './Components/UploadFile';
+import Register from './Components/Register';
 import Header from './Reusable/Header';
 
 export class App extends React.Component {
@@ -14,6 +15,7 @@ export class App extends React.Component {
           <Header />
           <Route path="/" exact component={Appl} />
           <Route path="/uploadFile" component={UploadFile} />
+          <Route path="/Register" component={Register} />
         </Router>
   
     );
