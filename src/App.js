@@ -31,7 +31,7 @@ function Appl() {
         <Col md='3'>
           <Card>
           <Link to='/uploadFile'>
-            <Card.Header>Upload File</Card.Header>
+            
             <Card.Body>Upload File</Card.Body>
             </Link>
           </Card>
