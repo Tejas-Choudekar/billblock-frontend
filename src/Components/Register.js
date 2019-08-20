@@ -7,6 +7,7 @@ import {
   Button
 } from "react-bootstrap";
 
+const API_URL = 'http://localhost:8080/api';
   export default class Signup extends Component {
   constructor(props) {
     super(props);
@@ -19,8 +20,6 @@ import {
       confirmPassword: "",
       status: ""
     };
-
-
     this.registerUser = this.registerUser.bind(this);
   }
 
@@ -35,11 +34,12 @@ import {
   }
 
   registerUser() {
-    axios.post('http://localhost:8080/api/register', { 
-      name:this.state.name,
-      email:this.state.email,
-      phone:this.state.phone,
-      password:this.state.password,                                       })
+    const url = API_URL + '/register';
+    const registerData = { name:this.state.name,
+                           email:this.state.email,
+                           phone:this.state.phone,
+                           password:this.state.password};
+    axios.post(url,registerData )
       .then(res => {
         this.setMessage(res.data);
       })
