@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 import {
   FormGroup,
   FormControl,
@@ -6,6 +7,7 @@ import {
   Button
 } from "react-bootstrap";
 
+const API_URL = 'http://localhost:8080/api';
   export default class Signup extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,9 @@ import {
       phone:"",
       password: "",
       confirmPassword: "",
+      status: ""
     };
+    this.registerUser = this.registerUser.bind(this);
   }
 
   validateForm() {
@@ -29,6 +33,32 @@ import {
     );
   }
 
+  registerUser() {
+    const url = API_URL + '/register';
+    const registerData = { name:this.state.name,
+                           email:this.state.email,
+                           phone:this.state.phone,
+                           password:this.state.password};
+    axios.post(url,registerData )
+      .then(res => {
+        this.setMessage(res.data);
+      })
+  }
+
+  setMessage(response){
+    switch(response){
+      case 301: this.status = "User Already Registered";
+                break;
+      case 201: this.status = "Failed to Register";
+                break;
+      case 101: this.status = "User Successfully Registered";
+                break;
+      default : this.status = "Registration Failed Unexpectedly";
+    }
+    alert(this.status);
+    window.location.reload();
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
@@ -37,6 +67,7 @@ import {
 
   handleSubmit = async event => {
     event.preventDefault();
+    this.registerUser();
   }
 
   handleConfirmationSubmit = async event => {
@@ -111,7 +142,7 @@ import {
   render() {
     return (
       <div className="Register">
-        {this.renderForm()}
+      {this.renderForm()}
       </div>
     );
   }
