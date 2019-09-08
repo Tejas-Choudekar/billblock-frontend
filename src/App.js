@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, Container, Row, Col, Card } from 'react-bootstrap';
-import { Navbar } from "react-bootstrap";
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
-import UploadFile from './Components/UploadFile';
 import Register from './Components/Register';
+import Files from './Components/Files';
 import Header from './Reusable/Header';
+import UploadFile from './Components/UploadFile';
 import Login from './Components/Login';
 import Inbox from './Components/Inbox';
 
@@ -18,6 +18,7 @@ export class App extends React.Component {
           <Route path="/" exact component={Appl} />
           <Route path="/login" exact component={Login} />
           <Route path="/uploadFile" component={UploadFile} />
+          <Route path="/Files" component={Files} />
           <Route path="/register" component={Register} />
           <Route path="/inbox" component={Inbox} />
         </Router>
@@ -45,6 +46,14 @@ function Appl() {
           <Link to='/inbox'>
             <Card.Header>Inbox</Card.Header>
             <Card.Body>Check what you recieved</Card.Body>
+            </Link>
+          </Card>
+        </Col>
+        <Col md='3'>
+          <Card>
+          <Link to='/Files'>
+            <Card.Header>3</Card.Header>
+            <Card.Body>Files</Card.Body>
             </Link>
           </Card>
         </Col>
