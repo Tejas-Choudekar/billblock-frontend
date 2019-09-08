@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './index.css';
-import App from './App';
+import Login from './Components/Login';
 import { BrowserRouter } from "react-router-dom";
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
 <BrowserRouter> 
-<App />
+<Login />
 </BrowserRouter>
 , document.getElementById('root'));
 
