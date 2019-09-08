@@ -56,6 +56,8 @@ const API_URL = 'http://localhost:8080/user';
       default : this.status = "Registration Failed Unexpectedly";
     }
     alert(this.status);
+    sessionStorage.setItem('loggedUser','login')
+    console.log("LoggedUser value: ",sessionStorage.getItem('loggedUser'))
     window.location.reload();
   }
 

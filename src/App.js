@@ -6,16 +6,21 @@ import Register from './Components/Register';
 import Files from './Components/Files';
 import Header from './Reusable/Header';
 import UploadFile from './Components/UploadFile';
+import Login from './Components/Login';
+import Inbox from './Components/Inbox';
 
 export class App extends React.Component {
+
   render() {
     return (
         <Router>
           <Header />
           <Route path="/" exact component={Appl} />
+          <Route path="/login" exact component={Login} />
           <Route path="/uploadFile" component={UploadFile} />
-          <Route path="/Register" component={Register} />
           <Route path="/Files" component={Files} />
+          <Route path="/register" component={Register} />
+          <Route path="/inbox" component={Inbox} />
         </Router>
     );
   }
@@ -24,28 +29,23 @@ export class App extends React.Component {
 function Appl() {
   return (
     <Container>
+      <br></br>
+      <h3>Welcome to Block Doc, {sessionStorage.getItem('loggedUser')}</h3>
+      <br></br>
       <Row>
         <Col md='3'>
           <Card>
           <Link to='/uploadFile'>
-            <Card.Header>1</Card.Header>
-            <Card.Body>Upload File</Card.Body>
+            <Card.Header>Upload File</Card.Header>
+            <Card.Body>Send file to your contact</Card.Body>
             </Link>
           </Card>
         </Col>
         <Col md='3'>
           <Card>
-          <Link to='/Login'>
-            <Card.Header>2</Card.Header>
-            <Card.Body>Login</Card.Body>
-            </Link>
-          </Card>
-        </Col>
-        <Col md='3'>
-          <Card>
-          <Link to='/Register'>
-            <Card.Header>3</Card.Header>
-            <Card.Body>Register</Card.Body>
+          <Link to='/inbox'>
+            <Card.Header>Inbox</Card.Header>
+            <Card.Body>Check what you recieved</Card.Body>
             </Link>
           </Card>
         </Col>
