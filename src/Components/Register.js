@@ -83,6 +83,11 @@ const API_URL = 'http://localhost:8080/user';
     );
   }
 
+  login() {
+    sessionStorage.setItem('loggedUser', 'login')
+    window.location.reload();
+  }
+
   renderForm() {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -136,6 +141,12 @@ const API_URL = 'http://localhost:8080/user';
             disabled={!this.validateForm()}
             type="submit">
             Submit
+        </Button>
+        <Button
+            block
+            bssize="large"
+            onClick={this.login}>
+            Already a member? Sign in
         </Button>
       </form>
     );
