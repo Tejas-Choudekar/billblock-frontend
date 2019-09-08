@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap";
 
 const API_URL = 'http://localhost:8080/api';
-  export default class Signup extends Component {
+  export default class Register extends Component {
   constructor(props) {
     super(props);
 
@@ -56,6 +56,8 @@ const API_URL = 'http://localhost:8080/api';
       default : this.status = "Registration Failed Unexpectedly";
     }
     alert(this.status);
+    sessionStorage.setItem('loggedUser','login')
+    console.log("LoggedUser value: ",sessionStorage.getItem('loggedUser'))
     window.location.reload();
   }
 
