@@ -33,17 +33,17 @@
 }
 
 @media all and (min-width: 480px) {
-  .Register {
+  .CustomForm {
     padding: 60px 0;
   }
 
-  .Register form {
+  .CustomForm form {
     margin: 0 auto;
     max-width: 320px;
   }
 }
 
-.Register form span.help-block {
+.CustomForm form span.help-block {
   font-size: 14px;
   padding-bottom: 10px;
   color: #999;

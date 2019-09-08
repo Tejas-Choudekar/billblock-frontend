@@ -7,8 +7,8 @@ import {
   Button
 } from "react-bootstrap";
 
-const API_URL = 'http://localhost:8080/api';
-  export default class Signup extends Component {
+const API_URL = 'http://localhost:8080/user';
+  export default class Register extends Component {
   constructor(props) {
     super(props);
 
@@ -41,7 +41,7 @@ const API_URL = 'http://localhost:8080/api';
                            password:this.state.password};
     axios.post(url,registerData )
       .then(res => {
-        this.setMessage(res.data);
+        this.setMessage(res.data.statusCode);
       })
   }
 
@@ -141,7 +141,7 @@ const API_URL = 'http://localhost:8080/api';
 
   render() {
     return (
-      <div className="Register">
+      <div className="CustomForm">
       {this.renderForm()}
       </div>
     );

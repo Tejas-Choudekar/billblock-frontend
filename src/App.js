@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, Container, Row, Col, Card } from 'react-bootstrap';
-import { Navbar } from "react-bootstrap";
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import './App.css';
 import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-dom";
-import UploadFile from './Components/UploadFile';
 import Register from './Components/Register';
+import Files from './Components/Files';
 import Header from './Reusable/Header';
+import UploadFile from './Components/UploadFile';
 
 export class App extends React.Component {
   render() {
@@ -15,6 +15,7 @@ export class App extends React.Component {
           <Route path="/" exact component={Appl} />
           <Route path="/uploadFile" component={UploadFile} />
           <Route path="/Register" component={Register} />
+          <Route path="/Files" component={Files} />
         </Router>
     );
   }
@@ -34,7 +35,7 @@ function Appl() {
         </Col>
         <Col md='3'>
           <Card>
-          <Link to='/uploadFile'>
+          <Link to='/Login'>
             <Card.Header>2</Card.Header>
             <Card.Body>Login</Card.Body>
             </Link>
@@ -42,9 +43,17 @@ function Appl() {
         </Col>
         <Col md='3'>
           <Card>
-          <Link to='/register'>
+          <Link to='/Register'>
             <Card.Header>3</Card.Header>
             <Card.Body>Register</Card.Body>
+            </Link>
+          </Card>
+        </Col>
+        <Col md='3'>
+          <Card>
+          <Link to='/Files'>
+            <Card.Header>3</Card.Header>
+            <Card.Body>Files</Card.Body>
             </Link>
           </Card>
         </Col>
