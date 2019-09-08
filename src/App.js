@@ -18,7 +18,7 @@ export class App extends React.Component {
           <Route path="/" exact component={Appl} />
           <Route path="/login" exact component={Login} />
           <Route path="/uploadFile" component={UploadFile} />
-          <Route path="/Files" component={Files} />
+          <Route path="/files" component={Files} />
           <Route path="/register" component={Register} />
           <Route path="/inbox" component={Inbox} />
         </Router>
@@ -51,9 +51,9 @@ function Appl() {
         </Col>
         <Col md='3'>
           <Card>
-          <Link to='/Files'>
-            <Card.Header>3</Card.Header>
-            <Card.Body>Files</Card.Body>
+          <Link to='/files'>
+            <Card.Header>Files</Card.Header>
+            <Card.Body>View your Files</Card.Body>
             </Link>
           </Card>
         </Col>

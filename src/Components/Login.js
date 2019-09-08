@@ -7,9 +7,9 @@ import {
   Button
 } from "react-bootstrap";
 import App from '../App'
-import Register from './Register'
+import Register from './Register';
 
-const API_URL = 'http://localhost:8080/api';
+const API_URL = 'http://localhost:8080/user';
   export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -38,11 +38,11 @@ const API_URL = 'http://localhost:8080/api';
                            password:this.state.password};
     axios.post(url,loginData )
       .then(res => {
-        if(res.data != 0 || res.data != 202){
-            sessionStorage.setItem('loggedUser', res.data)
+        if(res.data.statusCode != 202){
+            sessionStorage.setItem('loggedUser', res.data.message)
             window.location.replace('/')
         }else{
-            
+           alert(res.data.message);
         }
       })
       .catch(error => {
@@ -132,13 +132,13 @@ const API_URL = 'http://localhost:8080/api';
     }
     else if(isRegisteredUser){
         return (
-            <div className="Register">
+            <div className="CustomForm">
                {this.renderForm()}
             </div>
            );
     }else{
         return (
-            <div className="Register">
+            <div className="CustomForm">
                {this.renderForm()}
             </div>
            );
