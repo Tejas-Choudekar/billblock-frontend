@@ -18,6 +18,7 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { maxHeight } from '@material-ui/system';
+import axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -42,13 +43,34 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const API_URL = 'http://localhost:8080/file';
 export default function FileCard(props) {
+  
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   function handleExpandClick() {
     setExpanded(!expanded);
   }
+
+  function deleteFile(){
+    if ((window.confirm('Are you sure you wish to delete this item?')) == true ){
+    const url = API_URL + '/deleteFile';
+    const fileData = { id:props.fileId,
+                      fileName:props.fileName,
+                      fileType:props.fileType,
+                      fileSize:props.fileSize,
+                      senderId:props.senderId,
+                      receiverId:props.receiverId,
+                      ownerId:props.ownerId,
+                      fileURI:props.fileURI};
+      axios.post(url,fileData )
+            .then(res => {
+      alert(res.data.message);
+})
+  }
+}
+
 
   return (
     <Card className={classes.card}>
@@ -76,7 +98,7 @@ export default function FileCard(props) {
           <ShareIcon />
         </IconButton>
         <IconButton aria-label="delete">
-          <Delete/>
+          <Delete onClick={deleteFile}/>
         </IconButton>
         <IconButton aria-label="download">
           <Download/>
