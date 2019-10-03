@@ -54,6 +54,7 @@ export default function FileCard(props) {
   }
 
   function deleteFile(){
+    if ((window.confirm('Are you sure you wish to delete this item?')) == true ){
     const url = API_URL + '/deleteFile';
     const fileData = { id:props.fileId,
                       fileName:props.fileName,
@@ -67,8 +68,9 @@ export default function FileCard(props) {
             .then(res => {
       alert(res.data.message);
 })
-    alert("Do you really want to delete "+props.fileName+"?")
   }
+}
+
 
   return (
     <Card className={classes.card}>
