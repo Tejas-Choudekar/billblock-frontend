@@ -19,6 +19,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { maxHeight } from '@material-ui/system';
 import axios from 'axios'
+import defaultExport from 'module';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -71,6 +72,28 @@ export default function FileCard(props) {
   }
 }
 
+function downloadFile(){
+  const url1 = API_URL + '/downloadFile/' + props.fileId;
+//   axios.get(url1)
+//              .then(res => {
+//               //files: res.data
+// })
+// return(
+//   <Link to={url1}> </Link>
+// );
+fetch(url1)
+			.then(response => {
+				response.blob().then(blob => {
+					let url = window.URL.createObjectURL(blob);
+					let a = document.createElement('a');
+					a.href = url;
+					a.download = props.fileName;
+					a.click();
+				});
+				//window.location.href = response.url;
+		});
+}
+
 
   return (
     <Card className={classes.card}>
@@ -101,7 +124,7 @@ export default function FileCard(props) {
           <Delete onClick={deleteFile}/>
         </IconButton>
         <IconButton aria-label="download">
-          <Download/>
+          <Download onClick={downloadFile}/>
         </IconButton>
         <IconButton
           className={clsx(classes.expand, {
